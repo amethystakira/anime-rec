@@ -1,0 +1,236 @@
+:root {
+  --bg: #000000;        /* Black for main background */
+  --panel: #222222;     /* Dark gray for panels and cards */
+  --card: #222222;      /* Cards in dark gray */
+  --accent: #1DCD9F;    /* Mint green for buttons, links, highlights */
+  --accent-dark: #169976; /* Dark mint green for details or gradients */
+  --muted: #fff;        /* White for text/muted on black (high contrast) */
+  --glass: rgba(29, 205, 159, 0.09); /* subtle mint glass effect */
+  --radius: 12px;
+  --container-width: 1100px;
+  --max-width: 1100px;
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+
+/* Reset & Body */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background: var(--bg);
+  color: var(--muted);
+  -webkit-font-smoothing:antialiased;
+  line-height:1.45;
+}
+
+/* Container */
+.container{
+  width:90%;
+  max-width:var(--container-width);
+  margin:0 auto;
+}
+
+/* Header */
+.site-header{
+  position:sticky;
+  top:0;
+  background: linear-gradient(180deg, rgba(34,40,49,0.85), rgba(34,40,49,0.75));
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--glass);
+  z-index:100;
+}
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:14px 0;
+}
+.logo{
+  font-weight:700;
+  color:var(--accent);
+  text-decoration:none;
+  font-size:1.15rem;
+}
+.logo span{color:#fff}
+.nav a{
+  color:var(--muted);
+  text-decoration:none;
+  margin-left:18px;
+  font-weight:500;
+  transition: color .2s;
+}
+.nav a:hover{color: var(--accent);}
+
+/* Hero */
+.hero{
+  padding:48px 0;
+}
+.hero-inner{
+  display:grid;
+  grid-template-columns:1fr 380px;
+  gap:28px;
+  align-items:center;
+}
+.hero-text h1{
+  margin:0 0 12px 0;
+  font-size:2.2rem;
+}
+.hero-text p{margin:0 0 18px 0; color:var(--muted)}
+.cta{
+  display:inline-block;
+  background:var(--accent);
+  padding:10px 16px;
+  border-radius:10px;
+  color:var(--bg);
+  text-decoration:none;
+  font-weight:600;
+  transition:background 0.2s, color 0.2s;
+}
+.cta:hover, .cta:focus {
+  background: #fff;
+  color:var(--accent);
+}
+
+.poster-placeholder,
+.hero-art img {
+  height:220px;
+  border-radius:14px;
+  background: var(--panel);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--muted);
+  font-weight:600;
+  width:100%;
+  object-fit:cover;
+}
+
+/* Genres */
+.genres{padding:28px 0 0}
+.genre-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:12px;
+  margin-top:14px;
+}
+.genre-card{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+  border-radius:12px;
+  background:var(--glass);
+  color:var(--muted);
+  text-decoration:none;
+  font-weight:600;
+  transition:transform .2s, color .2s, background .2s;
+}
+.genre-card:hover{
+  transform:translateY(-6px);
+  color:var(--accent);
+  background: rgba(0,173,181,0.13);
+}
+
+/* Recommendations */
+.recs{padding:28px 0}
+.genre-section{margin:18px 0 36px}
+
+/* ANIME CARDS GRID: 3 per line desktop, 2 tablet/mobile */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 12px;
+}
+@media (max-width: 1000px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 680px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 per row on mobile as well */
+  }
+}
+
+.anime-card{
+  background: var(--card);
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow: 0 6px 18px rgba(2,6,23,0.32);
+  transition: transform .25s, box-shadow .25s;
+  display:flex;
+  flex-direction: column;
+}
+.anime-card:hover{ 
+  transform: translateY(-8px); 
+  box-shadow: 0 18px 36px rgba(2,6,23,0.47);
+}
+.anime-card img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  display:block;
+}
+.card-body{ padding:14px; display:flex; flex-direction:column; gap:8px; }
+.card-body h4{ margin:0; font-size:1.05rem;}
+.card-body p{ margin:0; color:var(--muted); font-size:0.95rem;}
+.meta{ color:var(--muted); font-size:0.9rem; margin-top:6px;}
+
+/* WATCH TRAILER BUTTON INVERT EFFECT */
+.link-btn {
+  margin-top: auto;
+  align-self: flex-start;
+  text-decoration: none;
+  background: var(--accent);
+  color: var(--bg);
+  border: 1px solid var(--accent);
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+}
+.link-btn:hover, .link-btn:focus {
+  background: var(--bg);
+  color: var(--accent);
+  border: 1.5px solid var(--accent);
+}
+
+/* About & Footer */
+.about{padding:28px 0 64px}
+.site-footer{
+  padding:18px 0;
+  border-top:1px solid var(--glass);
+  color:var(--muted);
+  text-align:center;
+  font-size:0.95rem;
+  background: var(--panel);
+}
+
+/* Responsive Tweaks */
+@media (max-width:900px){
+  .hero-inner{ grid-template-columns:1fr; }
+  .poster-placeholder,
+  .hero-art img { height:160px }
+}
+
+.site-footer a {
+  color: var(--accent);
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+.site-footer a:hover,
+.site-footer a:focus {
+  color: #fff; /* or a different highlight on hover */
+}
+
+.about a {
+  color: var(--accent);
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+.about a:hover,
+.about a:focus {
+  color: #fff; /* or another highlight for hover */
+}
