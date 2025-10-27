@@ -234,3 +234,23 @@ body{
 .about a:focus {
   color: #fff; /* or another highlight for hover */
 }
+#scrollToTopBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 15px;
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  z-index: 1000;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+#scrollToTopBtn:hover {
+  background-color: var(--accent-dark);
+}
